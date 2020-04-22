@@ -79,7 +79,7 @@ const createStudentComponent = (student) => {
         <section class='border dashed section--padded'>${student.subject}</section>
         <aside class='pushRight'>${student.info}</aside>`
     } else {
-        return `<h1>${student.name}</h1>
+        return `<h1 class='failing'>${student.name}</h1>
         <section>${student.subject}</section>
         <aside>${student.info}</aside>`
     }
