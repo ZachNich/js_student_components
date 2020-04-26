@@ -73,16 +73,15 @@ const students = [
     }
 ]
 
-createStudentHeaderPassing = (name) => `<h1 class='xx-large passing'>${name}</h1>`
-createStudentHeaderFailing = (name) => `<h1 class='failing'>${name}</h1>`
-createStudentSection = (subject) => `<section class='border dashed section--padded'>${subject}</section>`
-createStudentAside = (info) => `<aside class='pushRight'>${info}</aside>`
+// *NOTE* 'class' is a reserved word in JS
+
+const createHTMLComponent = (tag, classArg, content) => `<${tag} class='${classArg}'>${content}</${tag}>`
 
 const createStudentComponent = (student) => {
     if (student.score >= 60) {
-        return `${createStudentHeaderPassing(student.name)}${createStudentSection(student.subject)}${createStudentAside(student.info)}`
+        return `${createHTMLComponent('h1', 'xx-large passing', student.name)}${createHTMLComponent('section', 'border dashed section--padded', student.subject)}${createHTMLComponent('aside', 'pushRight', student.info)}`
     } else {
-        return `${createStudentHeaderFailing(student.name)}${createStudentSection(student.subject)}${createStudentAside(student.info)}`
+        return `${createHTMLComponent('h1', 'failing', student.name)}${createHTMLComponent('section', 'border dashed section--padded', student.subject)}${createHTMLComponent('aside', 'pushRight', student.info)}`
     }
 }
 
